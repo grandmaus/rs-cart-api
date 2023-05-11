@@ -20,6 +20,10 @@ export class UsersService {
     const id = v4(v4());
     const newUser = { id: name || id, name, password };
 
+    console.log('name >>>', name);
+    console.log('password >>>', password);
+    console.log('this.users >>>', this.users);
+
     this.users[ id ] = newUser;
 
     return newUser;

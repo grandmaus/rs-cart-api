@@ -18,6 +18,8 @@ export class AppController {
   @Post('api/auth/login')
   async login(@Request() req) {
     const token = this.authService.login(req.user, 'basic');
+    
+    console.log('login >>>>>', req);
 
     return  {
       statusCode: HttpStatus.OK,
@@ -31,6 +33,7 @@ export class AppController {
   @UseGuards(BasicAuthGuard)
   @Get('api/profile')
   async getProfile(@Request() req) {
+    console.log('getProfile >>>>>>>>', req);
     return {
       statusCode: HttpStatus.OK,
       message: 'OK',
